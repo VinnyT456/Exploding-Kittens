@@ -1,0 +1,1451 @@
+/* 1. ROOT GAME BOARD BACKGROUND (Crimson felt matching screenshots) */
+.game-root {
+    -fx-background-color: #7a0606; /* Deep Crimson Red */
+}
+
+/* 2. HEADER NAVIGATION BAR */
+.game-header {
+    -fx-background-color: #000000;
+    -fx-padding: 10px 20px;
+    -fx-border-color: transparent transparent #000000 transparent;
+    -fx-border-width: 0 0 4px 0;
+
+    -fx-pref-height: 50px;
+    -fx-max-height: 50px;
+    -fx-min-height: 50px;
+}
+
+.game-header-title {
+    -fx-fill: linear-gradient(to right, #ef4444 0%, #facc15 100%);
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* 3. YOUR TURN INDICATOR BADGE */
+.turn-indicator-box {
+    -fx-background-color: #22c55e; /* Vibrant action green */
+    -fx-padding: 5px 12px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-alignment: center;
+}
+
+.turn-indicator-text {
+    -fx-fill: #000000;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.quit-text {
+    -fx-fill: #ef4444;
+    -fx-text-fill: #ef4444;
+    -fx-background-color: transparent;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.quit-btn {
+    -fx-fill: #ef4444; /* Fiery red text for standard Text nodes */
+    -fx-text-fill: #ef4444; /* Fiery red text for Button/Hyperlink nodes */
+    -fx-background-color: transparent;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.quit-btn:hover {
+    -fx-fill: #f87171; /* Soft red hover for Text nodes */
+    -fx-text-fill: #f87171; /* Soft red hover for Buttons */
+}
+
+/* 4. OPPONENT PANEL SECTION */
+.opponents-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-border-color: transparent transparent #000000 transparent;
+    -fx-border-width: 0 0 3px 0;
+    -fx-padding: 15px;
+
+    -fx-pref-height: 140px;
+    -fx-max-height: 140px;
+    -fx-min-height: 140px;
+}
+
+.opponent-avatar {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50%; /* Perfect Circle */
+    -fx-border-radius: 44%;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(two-pass-box, #000000, 0, 1.0, 4, 4);
+}
+
+.opponent-avatar-text {
+    -fx-fill: #000000;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 20px;
+}
+
+.opponent-label {
+    -fx-fill: #ffffff;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 11px;
+}
+
+.opponent-card-count {
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 2px 8px;
+    -fx-background-radius: 10px;
+}
+
+.table-felt {
+    -fx-background-color: transparent; /* Inherits the deep crimson root background */
+    -fx-padding: 20px 40px;
+
+    /* Layout boundaries matching the 1000x800 blueprint */
+    -fx-min-height: 380px;
+    -fx-max-height: 380px;
+    -fx-pref-height: 380px;
+}
+
+/* 5. TABLE ELEMENTS (DECK STACKS) */
+/* The Card Asset Background Layering */
+.deck-card-button {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-min-width: 169px;
+    -fx-min-height: 208px;        /* Matches simulator h-52 exactly! */
+    -fx-max-width: 169px;
+    -fx-max-height: 208px;        /* Matches simulator h-52 exactly! */
+    -fx-padding: 15px;
+    -fx-alignment: center;
+    -fx-background-insets: 1px;
+    -fx-cursor: hand;
+}
+
+/* Comic Book Tactile Lift Effect - shifts up/left and deepens shadow */
+.deck-card-button:hover {
+    -fx-translate-y: -1px;
+    -fx-translate-x: -1px;
+}
+
+/* Underlay Silhouette cards to represent 3D stack depth in a StackPane */
+.deck-stack-underlay-1 {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-min-width: 169px;
+    -fx-min-height: 208px;
+    -fx-max-width: 169px;
+    -fx-max-height: 208px;
+    -fx-translate-x: 6px; /* Offset to bottom-right */
+    -fx-translate-y: 6px;
+}
+
+.deck-stack-underlay-2 {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-min-width: 169px;
+    -fx-min-height: 208px;
+    -fx-max-width: 169px;
+    -fx-max-height: 208px;
+    -fx-translate-x: 12px; /* Further offset to bottom-right */
+    -fx-translate-y: 12px;
+}
+
+/* Big Bold Red Title Text */
+.deck-title-text {
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #b91c1c;
+    -fx-max-width: infinity;
+    -fx-alignment: center;
+}
+
+/* Soft Gray Capsule Badge */
+.deck-pill-badge {
+    -fx-background-color: #f1f5f9; /* Soft light gray/blue fill */
+    -fx-padding: 6px 18px;
+    -fx-background-radius: 15px;
+
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #94a3b8;
+
+    -fx-alignment: center;
+}
+
+/* Solid Yellow Action Button underneath the deck stack */
+.draw-action-button {
+    -fx-background-color: #facc15; /* Golden Yellow */
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 12px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-padding: 10px 24px;
+    -fx-cursor: hand;
+    -fx-background-insets: 2px;
+    -fx-effect: dropshadow(two-pass-box, black, 0, 1.0, 4, 4);
+}
+
+.draw-action-button:hover {
+    -fx-background-color: #fde047;
+    -fx-translate-y: 1px;
+    -fx-effect: dropshadow(one-pass-box, black, 0, 1.0, 3, 3);
+}
+
+.draw-action-button:pressed {
+    -fx-translate-y: 3px;
+    -fx-effect: none;
+}
+
+/* 6. TABLE CHATTER PARCHMENT PANEL (Expanded vertically for 800px height) */
+.table-chatter-card {
+    -fx-background-color: #fdfbf7; /* Warm white parchment */
+    -fx-background-radius: 22px;
+    -fx-border-radius: 18px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-padding: 20px;
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+    -fx-min-height: 260px; /* Increased from 240px for more chat lines! */
+    -fx-max-height: 260px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 8, 8);
+}
+
+.table-chatter-title {
+    -fx-fill: #000000;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Dotted horizontal rows inside Table Chatter feed */
+.chatter-feed-row {
+    -fx-border-color: transparent transparent #d1d5db transparent;
+    -fx-border-style: dashed;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 6px 0;
+    -fx-alignment: center-left;
+}
+
+.chatter-feed-text {
+    -fx-fill: #374151; /* Dark charcoal ink */
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* 1. THE MAIN SCROLLPANE VIEWPORT */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent; /* Ensures inner viewport is also transparent */
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* 2. THE VERTICAL SCROLLBAR CONTAINER */
+.scroll-pane .scroll-bar {
+    -fx-background-color: transparent;
+    -fx-width: 8px; /* Snug, clean scroll bar width */
+    -fx-padding: 0;
+}
+
+/* 3. THE SCROLLBAR THUMB (The draggable handle) */
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #cbd5e1; /* Slate-300 clean grey */
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #94a3b8; /* Slate-400 slightly darker grey on hover */
+}
+
+.scroll-pane .scroll-bar .thumb:pressed {
+    -fx-background-color: #64748b; /* Slate-500 even darker when actively dragging */
+}
+
+/* 4. THE SCROLLBAR TRACK (The background column) */
+.scroll-pane .scroll-bar .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* 5. DECREMENT & INCREMENT BUTTONS (The top and bottom arrow buttons) */
+/* We style these transparent to hide them and keep the comic layout looking flat and minimal */
+.scroll-pane .scroll-bar .decrement-button,
+.scroll-pane .scroll-bar .increment-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-pane .scroll-bar .decrement-arrow,
+.scroll-pane .scroll-bar .increment-arrow {
+    -fx-shape: null; /* Removes the native arrow rendering shape */
+    -fx-padding: 0;
+}
+
+/* 7. DISCARD PILE THEMATIC CARD WITH MULTI-STACK LAYERS */
+.discard-card-pile {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+
+    -fx-min-width: 180px;
+    -fx-min-height: 260px;
+    -fx-max-width: 180px;
+    -fx-max-height: 260px;
+
+    -fx-padding: 10px 10px 0 10px;
+    -fx-alignment: bottom-center; /* Aligned to bottom-center as requested */
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 6, 6);
+}
+
+.discard-footer-banner {
+    -fx-background-color: #000000;
+    -fx-padding: 8px 0;
+    -fx-alignment: center;
+
+    -fx-min-width: 180px;
+    -fx-max-width: 180px;
+
+    -fx-background-radius: 0 0 6px 6px;
+
+    -fx-translate-y: 0px;
+}
+
+.discard-footer-text {
+    -fx-fill: #ffffff;
+    -fx-font-family: "Arial Black", sans-serif;
+    -fx-font-size: 14px; /* Matches requested size */
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. 3-COLUMN PLAYER HAND CONTAINER (Scaled for 1000x800 resolution)
+   -------------------------------------------------------------------------- */
+.player-hand-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-border-color: #000000 transparent transparent transparent;
+    -fx-border-width: 4px 0 0 0;
+    -fx-padding: 15px 25px;
+
+    -fx-pref-height: 230px;
+    -fx-max-height: 230px;
+    -fx-min-height: 230px;
+}
+
+/* Column 1 Layout */
+.hand-info-col-1 {
+    -fx-alignment: top-left;
+    -fx-spacing: 6px;
+    -fx-max-width: 190px;
+    -fx-min-width: 190px;
+}
+
+.hand-info-title {
+    -fx-text-fill: #facc15; /* Golden yellow */
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+.hand-info-badge {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 10px;
+}
+
+.hand-info-badge-text {
+    -fx-fill: #ffffff;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 10px;
+}
+
+/* Column 2 Layout (Cards list viewport, generous vertical padding headroom) */
+.hand-cards-col-2 {
+    -fx-alignment: center;
+    -fx-padding: 0;
+    -fx-max-width: 570px;
+    -fx-min-width: 570px;
+    -fx-pref-height: 200px;
+    -fx-min-height: 200px;
+    -fx-max-height: 200px;
+    -fx-vbar-policy: never;
+    -fx-hbar-policy: never;
+}
+
+.hand-scroll-content {
+    -fx-alignment: center;
+    -fx-padding: 18px 0 10px 0;
+}
+
+/* Column 3 Layout */
+.hand-action-col-3 {
+    -fx-alignment: top-right;
+    -fx-max-width: 190px;
+    -fx-min-width: 190px;
+}
+
+.btn-play-card {
+    /* 🎨 COLOR & TEXT: Pop-art high-contrast styling */
+    -fx-background-color: #facc15; /* Bright Golden Yellow */
+    -fx-text-fill: #000000;         /* Ink Black text */
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+
+    /* 📦 BORDERS: Cardboard asymmetric cuts */
+    -fx-background-radius: 12px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-padding: 12px 24px;
+    -fx-cursor: hand;
+
+    -fx-background-insets: 2px;
+
+    /* 👤 3D DEPTH: Heavy solid black drop shadow */
+    -fx-effect: dropshadow(two-pass-box, #000000, 0, 1.0, 6, 6);
+}
+
+/* --- HOVER INTERACTION --- */
+.btn-play-card:hover {
+    -fx-background-color: #fde047; /* Glowing yellow */
+    -fx-translate-y: 1px;          /* Nudges down slightly */
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 3, 3); /* Compresses shadow */
+}
+
+/* --- ACTIVE CLICK INTERACTION --- */
+.btn-play-card:pressed {
+    -fx-translate-y: 3px;          /* Flattens completely onto the felt */
+    -fx-effect: none;              /* Removes shadow while pressed */
+}
+
+/* --- 🟫 DISABLED / INACTIVE STATE ---
+   Recreates the exact dark chocolate-crimson state from your hand screenshots
+   when no card is currently selected.
+*/
+.btn-play-card:disabled {
+    -fx-background-color: #241311; /* Dark chocolate/crimson backdrop */
+    -fx-text-fill: #4d3230;        /* Muted brown-red text */
+    -fx-border-color: #160a09;     /* Deep outline shadow border */
+    -fx-cursor: default;           /* Restores standard pointer arrow */
+    -fx-translate-y: 0px;          /* Locked flat at rest */
+    -fx-effect: none;              /* No active drop shadow */
+    -fx-opacity: 0.9;              /* Solid paint feel */
+}
+
+/* 9. INDIVIDUAL PLAY HAND CARDS (Scaled slightly larger to match taller aspect) */
+.hand-cards-container {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-spacing: -36px;
+    -fx-alignment: center;
+    -fx-padding: 0;
+}
+
+.hand-card {
+    -fx-background-color: transparent;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-min-width: 120px;
+    -fx-min-height: 160px;
+    -fx-max-width: 120px;
+    -fx-max-height: 160px;
+    -fx-padding: 8px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 6, 6);
+}
+
+.hand-card:hover {
+    -fx-translate-y: -16px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 8, 8);
+    -fx-view-order: -1.0;
+}
+
+.hand-card-selected {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #facc15;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 3, 3);
+    -fx-view-order: -2.0;
+    -fx-translate-y: -12px;
+}
+
+.discard-card {
+    -fx-min-width: 175px;
+    -fx-min-height: 260px;
+    -fx-max-width: 175px;
+    -fx-max-height: 260px;
+    -fx-alignment: center;
+}
+
+.thick-black-line {
+    -fx-background-color: #000000;
+    -fx-min-height: 5px;
+    -fx-max-height: 5px;
+}
+
+.opponent-avatar-active {
+    -fx-border-color: #facc15; /* 🚀 Theme-matching Golden Yellow */
+    -fx-border-width: 3px;      /* Thicker ink stroke for visual pop */
+    -fx-border-radius: 10px;
+    -fx-padding: 4px;
+
+    /* Optional: Adds a warm comic-book golden outer glow */
+    -fx-effect: dropshadow(three-pass-box, rgba(250, 204, 21, 0.5), 8, 0, 0, 0);
+}
+
+.opponent-active-highlight {
+    -fx-scale-x: 1.1;                               /* scale-110 (Horizontal) */
+    -fx-scale-y: 1.1;                               /* scale-110 (Vertical) */
+    -fx-background-color: rgba(255, 255, 255, 0.1);  /* bg-white/10 */
+    -fx-background-radius: 12px;                    /* rounded-lg */
+    -fx-border-color: #facc15;                      /* ring-yellow-400 */
+    -fx-border-width: 2px;                          /* ring-2 */
+    -fx-border-radius: 10px;                        /* Snug border corner alignment */
+    -fx-padding: 6px;                               /* p-1 padding conversion */
+    -fx-effect: dropshadow(three-pass-box, rgba(250, 204, 21, 0.4), 8, 0, 0, 0); /* Outer golden glow */
+}
+
+/* --------------------------------------------------------------------------
+   SHARED MODAL OVERLAY BACKDROP
+   Applied to the single parent overlay in GameView.
+   -------------------------------------------------------------------------- */
+.card-overlay-backdrop,
+.future-overlay-backdrop,
+.targeted-overlay-backdrop,
+.favor-overlay-backdrop,
+.catcard-overlay-backdrop {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-alignment: center;
+}
+
+.modal-content-section {
+    -fx-alignment: center;
+}
+
+.modal-header-box {
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+}
+
+.modal-body {
+    -fx-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. DIALOG CONTAINER
+   The central floating modal box.
+   -------------------------------------------------------------------------- */
+.future-dialog-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-padding: 24px;
+
+    -fx-min-width: 518px;
+    -fx-max-width: 518px;
+
+    -fx-min-height: 400px;
+    -fx-max-height: 400px;
+
+    -fx-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADERS & TEXTS
+   -------------------------------------------------------------------------- */
+.future-title-text {
+    -fx-fill: #000000; /* Vibrant Future Purple */
+    -fx-text-fill: #000000;
+    -fx-font-family: Impact;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.future-subtitle-text {
+    -fx-fill: #57534e; /* Slate/stone gray description */
+    -fx-text-fill: #57534e;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   4. PEEKED CARDS GRID
+   Holds the 3 cards side-by-side with comic offsets.
+   -------------------------------------------------------------------------- */
+.future-cards-hbox {
+    -fx-spacing: 65px;
+    -fx-alignment: center;
+    -fx-padding: 16px 0;
+    -fx-min-height: 200px;
+    -fx-max-height: 200px;
+}
+
+.future-peeked-card {
+    -fx-min-width: 96px;
+    -fx-min-height: 200px;
+    -fx-max-width: 96px;
+    -fx-max-height: 200px;
+    -fx-padding: 8px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.15), 0, 1.0, 3, 3);
+}
+
+/* --------------------------------------------------------------------------
+   5. ACTION BUTTONS
+   -------------------------------------------------------------------------- */
+.future-dismiss-button {
+    -fx-background-color: #facc15; /* Golden Yellow */
+    -fx-text-fill: #000000;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-padding: 10px 24px;
+    -fx-max-width: 475px;
+    -fx-min-width: 475px;
+    -fx-cursor: hand;
+    -fx-background-insets: 2px;
+}
+
+.future-dismiss-button:hover {
+    -fx-background-color: #fde047;
+}
+
+.future-dismiss-button:pressed {
+    -fx-translate-y: 3px;
+    -fx-effect: none;
+}
+
+/* --------------------------------------------------------------------------
+   1. MAIN CONTAINER
+   The wrapper for the entire player profile (dimmed out)
+   -------------------------------------------------------------------------- */
+.exploded-player-container {
+    -fx-opacity: 0.6; /* Dims the entire player profile */
+    -fx-alignment: center;
+    -fx-spacing: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   2. AVATAR CIRCLE
+   The white background with the red border and solid shadow
+   -------------------------------------------------------------------------- */
+.exploded-avatar-circle {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dc2626; /* Tailwind red-600 */
+    -fx-border-width: 3px;
+    -fx-background-radius: 50em; /* Perfect circle */
+    -fx-border-radius: 50em;
+
+    /* Exact 40x40 dimensions from prototype (w-10 h-10) */
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+
+    -fx-alignment: center;
+    /* Solid flat black shadow (2px 2px) */
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 2, 2);
+}
+
+/* --------------------------------------------------------------------------
+   4. PLAYER NAME & STATUS BADGE
+   -------------------------------------------------------------------------- */
+.exploded-player-name {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-strikethrough: true; /* Puts a line right through their name! */
+}
+
+.exploded-status-badge {
+    -fx-background-color: rgba(0, 0, 0, 0.4);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-padding: 2px 6px;
+    -fx-background-radius: 10px; /* Pill shape */
+}
+
+/* --------------------------------------------------------------------------
+   2. DIALOG CONTAINER
+   The central floating modal locked to the prototype's "max-w-sm" (384px).
+   -------------------------------------------------------------------------- */
+.targeted-dialog-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-padding: 24px;
+
+    -fx-min-width: 450px;
+    -fx-max-width: 450px;
+
+    -fx-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADERS & TEXTS
+   -------------------------------------------------------------------------- */
+.targeted-title-text {
+    -fx-fill: #b91c1c; /* Tailwind red-700 */
+    -fx-text-fill: #b91c1c;
+    -fx-font-family: Impact;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.targeted-subtitle-text {
+    -fx-fill: #57534e; /* Tailwind stone-600 */
+    -fx-text-fill: #57534e;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. VICTIM SELECTION BUTTONS
+   -------------------------------------------------------------------------- */
+.targeted-action-button {
+    -fx-background-color: #b91c1c; /* Dark red base */
+    -fx-text-fill: #ffffff;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-padding: 10px 24px;
+    -fx-min-width: 400px;
+    -fx-max-width: 400px;
+    -fx-cursor: hand;
+    -fx-cursor: hand;
+    -fx-background-insets: 2px;
+}
+
+.targeted-action-button:hover {
+    -fx-background-color: #dc2626; /* Bright red on hover (red-600) */
+}
+
+.targeted-action-button:pressed {
+    -fx-translate-y: 3px;
+    -fx-effect: none;
+}
+
+/* Container for the vertical list of buttons */
+.targeted-button-vbox {
+    -fx-spacing: 8px;
+    -fx-alignment: center;
+    -fx-padding: 16px 0 0 0;
+}
+
+.favor-title-text {
+    -fx-fill: #ec4899; /* React: text-pink-600 (#ec4899) */
+    -fx-text-fill: #ec4899;
+    -fx-font-family: Impact;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.favor-subtitle-text {
+    -fx-fill: #57534e; /* React: text-stone-600 */
+    -fx-text-fill: #57534e;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. DEMAND FAVOR MODAL (Target Selector - Narrower width)
+   -------------------------------------------------------------------------- */
+.favor-request-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-padding: 24px;
+
+    -fx-min-width: 450px;
+    -fx-max-width: 450px;
+
+    -fx-alignment: center;
+}
+
+/* Container spacing for the target selection list */
+.favor-button-vbox {
+    -fx-spacing: 8px; /* space-y-2 */
+    -fx-alignment: center;
+    -fx-padding: 16px 0 0 0;
+}
+
+/* Button to select a target player */
+.favor-target-button {
+    -fx-background-color: #ec4899; /* Pink-500 base */
+    -fx-text-fill: #ffffff;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-padding: 10px 24px;
+    -fx-min-width: 400px;
+    -fx-max-width: 400px;
+    -fx-cursor: hand;
+    -fx-cursor: hand;
+    -fx-background-insets: 2px;
+}
+
+.favor-target-button:hover {
+    -fx-background-color: #f472b6; /* Lighter pink (pink-400) */
+}
+
+.favor-target-button:pressed {
+    -fx-translate-y: 3px;
+    -fx-effect: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. GRANT FAVOR MODAL (Handoff Selector - Wider width)
+   -------------------------------------------------------------------------- */
+.favor-grant-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-padding: 24px;
+
+    /* 🎯 EXACT PROTOTYPE DIMENSIONS (React: max-w-md = 448px) */
+    -fx-min-width: 500px;
+    -fx-max-width: 500px;
+
+    -fx-min-height: 375px;
+    -fx-max-height: 375px;
+
+    -fx-alignment: center;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 10, 10);
+}
+
+.favor-card-hbox {
+    -fx-background-color: transparent;
+    -fx-spacing: -36px;
+    -fx-alignment: center;
+    -fx-padding: 16px 0 8px 0;
+}
+
+.favor-card-scroll {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-min-width: 460px;
+    -fx-max-width: 460px;
+    -fx-padding: 16px 0 8px 0;
+}
+
+/* The card handoff select items designed inside the prompt */
+.favor-card-button {
+    -fx-background-color: #f5f5f4; /* Stone-100 base */
+    -fx-text-fill: #000000;
+    -fx-font-family: "System";
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-padding: 8px;
+    -fx-cursor: hand;
+}
+
+.favor-card-button:hover {
+    -fx-background-color: #fce7f3; /* Pink-100 tint */
+    -fx-text-fill: #ec4899; /* Text switches to theme pink */
+    -fx-border-color: #ec4899; /* Border switches to theme pink */
+}
+
+.favor-card-button:pressed {
+    -fx-translate-y: 2px;
+}
+
+.favor-select-card {
+    -fx-cursor: hand;
+}
+
+.favor-select-card:hover {
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+}
+
+/* The popup window (VBox) */
+.catcard-dialog-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-padding: 24px;
+
+    -fx-min-width: 450px;
+    -fx-max-width: 450px;
+
+    -fx-alignment: center;
+}
+
+/* Title text (Label) */
+.catcard-title-text {
+    -fx-fill: #eab308;
+    -fx-text-fill: #eab308;
+    -fx-font-family: Impact;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+.catcard-subtitle-text {
+    -fx-fill: #57534e; /* Tailwind stone-600 */
+    -fx-text-fill: #57534e;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.opponent-list {
+    -fx-spacing: 8px;
+    -fx-alignment: center;
+    -fx-padding: 16px 0 0 0;
+}
+
+/* Individual opponent buttons (Button) */
+.catCard-target-button {
+    -fx-background-color: #eab308;
+    -fx-text-fill: #000000;
+    -fx-font-family: Arial Black;
+    -fx-font-weight: 900;
+    -fx-font-size: 18px;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-max-width: infinity; /* Stretches to fill VBox width */
+}
+
+.catCard-target-button:hover {
+    -fx-background-color: #facc15;
+}
+
+.catCard-target-button:pressed {
+    -fx-background-color: #ca8a04;
+}
+
+/* Very dark red, high opacity background overlay */
+.defuse-overlay {
+    -fx-background-color: rgba(69, 10, 10, 0.95);
+    -fx-alignment: center;
+}
+
+/* Main white modal card */
+.defuse-modal-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 24px;
+    -fx-padding: 24px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(two-pass-box, #000000, 0, 1.0, 10, 10);
+    -fx-max-width: 400px;
+    -fx-min-width: 400px;
+    -fx-max-height: 400px;
+    -fx-min-height: 400px;
+}
+
+.defuse-section {
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+/* "KITTEN IGNITED!" Header */
+.defuse-header {
+    -fx-fill: #dc2626;
+    -fx-font-family: Impact;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+/* Grey container holding the slider */
+.slider-container {
+    -fx-background-color: #f5f5f4;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-spacing: 20px;
+    -fx-max-height: 150px;
+    -fx-min-height: 150px;
+    -fx-alignment: center;
+}
+
+/* Label above slider */
+.slider-label {
+    -fx-fill: #44403c;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+/* JavaFX Native Slider Styling */
+.depth-slider {
+    -fx-pref-width: 300px;
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+    -fx-min-height: 24px;
+    -fx-pref-height: 24px;
+}
+
+.depth-slider .track {
+    -fx-background-color: #d6d3d1;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3px;
+    -fx-pref-height: 8px;
+    -fx-min-height: 8px;
+}
+
+.depth-slider .thumb {
+    -fx-background-color: #dc2626;
+    -fx-background-insets: 0;
+    -fx-pref-width: 18px;
+    -fx-pref-height: 18px;
+    -fx-background-radius: 9px;
+    -fx-cursor: hand;
+}
+
+/* Text indicators below the slider */
+.stat-text {
+    -fx-fill: #78716c;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.stat-text-chosen {
+    -fx-fill: #dc2626;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Action Buttons */
+.btn-defuse {
+    -fx-background-color: #22c55e;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-font-family: Arial Black;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 14px;
+    -fx-padding: 12px 16px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 6, 6);
+    -fx-cursor: hand;
+    -fx-pref-width: 330px;
+    -fx-max-width: 330px;
+    -fx-min-width: 330px;
+    -fx-background-insets: 2px;
+    -fx-alignment: center;
+}
+
+.btn-defuse:hover {
+    -fx-background-color: #4ade80;
+}
+
+.btn-defuse:pressed {
+    -fx-background-color: #16a34a;
+    -fx-effect: none;
+}
+
+.btn-explode {
+    -fx-background-color: #e7e5e4;
+    -fx-text-fill: #44403c;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-font-family: Arial Black;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 14px;
+    -fx-padding: 12px 16px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 6, 6);
+    -fx-cursor: hand;
+    -fx-pref-width: 330px;
+    -fx-max-width: 330px;
+    -fx-min-width: 330px;
+    -fx-background-insets: 2px;
+    -fx-alignment: center;
+}
+
+.btn-explode:hover {
+    -fx-background-color: #d6d3d1;
+}
+
+.btn-explode:pressed {
+    -fx-background-color: #a8a29e;
+    -fx-effect: none;
+}
+
+/* Full-screen dark overlay */
+.combo-three-overlay {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-alignment: center;
+}
+
+/* Main modal container card */
+.combo-three-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 4px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 24px;
+    -fx-padding: 24px;
+    -fx-spacing: 16px;
+    -fx-alignment: center;
+    -fx-max-width: 450px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 10, 10);
+}
+
+/* "✨ SPECIAL COMBO" Header */
+.combo-three-header {
+    -fx-fill: #eab308;
+    -fx-font-family: Impact;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+/* Instructional layout text */
+.combo-three-instruction {
+    -fx-fill: #57534e;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+/* --- THE GUESS BOX CONTAINER (VBox) --- */
+.guess-box-container {
+    -fx-background-color: #f5f5f4;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-spacing: 6px;
+    -fx-alignment: center-left;
+    -fx-max-width: infinity;
+}
+
+/* Drop-down prompt label */
+.guess-box-label {
+    -fx-text-fill: #44403c;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.combo-box-guess {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;          /* Thicker border to match comic aesthetic */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;           /* Chunky bold text */
+    -fx-text-fill: #000000;
+    -fx-padding: 6px 12px;
+    -fx-cursor: hand;
+}
+
+.combo-box-guess:hover {
+    -fx-background-color: #fcfbf7;
+    -fx-border-color: #ea580c;      /* Highlights orange on hover */
+}
+
+.combo-box-guess:showing {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #eab308;      /* Highlights gold when dropdown is open */
+}
+
+/* --- THE ARROW BUTTON (Right Side) --- */
+.combo-box-guess .arrow-button {
+    -fx-background-color: transparent; /* Remove default grey background */
+    -fx-padding: 0 4px 0 8px;
+}
+
+/* Customize the literal arrow triangle */
+.combo-box-guess .arrow {
+    -fx-background-color: #000000;    /* Solid black arrow */
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z"; /* Clean vector triangle shape */
+}
+
+.combo-box-guess:hover .arrow {
+    -fx-background-color: #ea580c;    /* Arrow turns orange on hover */
+}
+
+
+/* --- THE POPUP DROPDOWN LISTVIEW --- */
+.combo-box-guess .list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 12px;
+    -fx-padding: 4px;
+    /* Puts a crisp shadow behind the floating popup menu */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 8, 0.0, 0, 4);
+}
+
+/* Individual cell items inside the dropdown */
+.combo-box-guess .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-padding: 6px 10px;
+    -fx-background-radius: 4px;
+}
+
+/* Hovering over an item in the list */
+.combo-box-guess .list-cell:hover {
+    -fx-background-color: #f5f5f4;  /* Light stone grey background */
+    -fx-text-fill: #ea580c;          /* Pop orange text on hover */
+}
+
+/* The currently selected item inside the open list */
+.combo-box-guess .list-cell:selected {
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+}
+
+/* --- TARGET BUTTONS --- */
+.btn-three-target {
+    -fx-background-color: #eab308;
+    -fx-text-fill: #000000;
+    -fx-font-family: Arial Black;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px 16px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 5, 5);
+    -fx-cursor: hand;
+    -fx-background-insets: 2px;
+}
+
+.btn-three-target:hover {
+    -fx-background-color: #facc15;
+}
+
+.btn-three-target:pressed {
+    -fx-translate-y: 2px;
+    -fx-effect: dropshadow(one-pass-box, #000000, 0, 1.0, 1, 1);
+}
+
+/* --- THE DARK BACKGROUND OVERLAY --- */
+.bury-overlay {
+    /* A dark, semi-transparent blue/black to dim the background */
+    -fx-background-color: rgba(15, 25, 40, 0.85);
+
+    /* Ensures the overlay flexes to fill the entire window */
+    -fx-alignment: center;
+}
+
+/* --- 1. MAIN MODAL CONTAINER --- */
+.bury-modal {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 5px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 24px;
+    -fx-padding: 24px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(two-pass-box, #000000, 0, 1.0, 10, 10);
+    -fx-max-width: 400px;
+    -fx-min-width: 400px;
+    -fx-max-height: 600px;
+    -fx-min-height: 600px;
+}
+
+.bury-section {
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+/* --- 2. TYPOGRAPHY --- */
+.bury-title {
+    -fx-font-family: "Arial black";
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-fill: #2b82c9; /* Bright blue */
+}
+
+.bury-subtitle {
+    -fx-font-family: "Arial black";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-fill: #57534e; /* Dark stone gray */
+}
+
+/* --- 3. INNER SLIDER CONTAINER --- */
+.slider-box {
+    -fx-background-color: #f5f5f4; /* Light gray */
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+}
+
+.slider-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #444444;
+}
+
+.slider-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #2b82c9;
+}
+
+/* --- 4. CUSTOM JAVA-FX SLIDER --- */
+.custom-slider {
+    -fx-pref-width: 300px;
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
+    -fx-min-height: 24px;
+    -fx-pref-height: 24px;
+}
+
+.custom-slider .track {
+    -fx-background-color: #d6d3d1;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3px;
+    -fx-pref-height: 8px;
+    -fx-min-height: 8px;
+}
+
+.custom-slider .thumb {
+    -fx-background-color: #2b82c9;
+    -fx-pref-width: 18px;
+    -fx-pref-height: 18px;
+    -fx-background-radius: 50%;
+}
+
+/* Text indicators below the slider */
+.bury-stat-text {
+    -fx-fill: #78716c;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.bury-stat-text-chosen {
+    -fx-fill: #2b82c9;
+    -fx-font-family: Arial Black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* --- 5. ACTION BUTTON --- */
+.bury-button {
+    -fx-background-color: #55b6eb; /* Light sky blue */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-family: Arial black;
+    -fx-font-weight: bold;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 14px;
+    -fx-padding: 15px 20px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 0, 1.0, 5, 5);
+    -fx-background-insets: 2px;
+    -fx-cursor: hand;
+}
+
+.bury-button:hover {
+    -fx-background-color: #8ad2f5;
+}
+
+.bury-button:pressed {
+    /* Push-down animation */
+    -fx-effect: none;
+}
